@@ -58,6 +58,7 @@ class AppPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->sidebarCollapsibleOnDesktop()
+            ->sidebarFullyCollapsibleOnDesktop()
             ->readOnlyRelationManagersOnResourceViewPagesByDefault(false);
     }
 }
