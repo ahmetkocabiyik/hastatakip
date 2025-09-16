@@ -7,6 +7,7 @@ use App\Filament\Resources\Patients\Pages\EditPatient;
 use App\Filament\Resources\Patients\Pages\ListPatients;
 use App\Filament\Resources\Patients\Pages\ViewPatient;
 use App\Filament\Resources\Patients\RelationManagers\DiagnosesRelationManager;
+use App\Filament\Resources\Patients\RelationManagers\NotesRelationManager;
 use App\Filament\Resources\Patients\RelationManagers\TransactionsRelationManager;
 use App\Filament\Resources\Patients\Schemas\PatientForm;
 use App\Filament\Resources\Patients\Schemas\PatientInfolist;
@@ -26,7 +27,9 @@ class PatientResource extends Resource
     protected static ?string $modelLabel = "Hasta";
     protected static ?string $pluralModelLabel = "Hastalar";
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?int $navigationSort = 1;
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -51,7 +54,8 @@ class PatientResource extends Resource
             //
             RelationGroup::make('Relations', [
                 TransactionsRelationManager::class,
-                DiagnosesRelationManager::class
+                DiagnosesRelationManager::class,
+                NotesRelationManager::class
             ]),
 
         ];

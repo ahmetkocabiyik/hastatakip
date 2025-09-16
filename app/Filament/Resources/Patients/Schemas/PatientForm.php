@@ -7,6 +7,7 @@ use App\Enums\PatientSource;
 use App\Enums\PatientStatus;
 use App\Models\Patient;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -27,13 +28,11 @@ class PatientForm
                     ->label("İsim Soyisim")
                     ->required(),
                 TextInput::make('id_no')
-                    ->label("TC Kimlik No"),
+                    ->label("TC Kimlik / Pasaport No"),
                 DatePicker::make('registration_date')
-                    ->native(false)
                     ->default(now())
                     ->label("Kayıt Tarihi"),
                 DatePicker::make('birth_date')
-                    ->native(false)
                     ->default(now()->subYears(20))
                     ->label("Doğum Tarihi"),
                 Select::make('city_id')
@@ -77,6 +76,8 @@ class PatientForm
                 Textarea::make('complaint')
                     ->label("Şikayet")
                     ->columnSpanFull(),
+
+
 
             ]);
     }

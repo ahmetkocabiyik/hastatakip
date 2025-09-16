@@ -7,6 +7,7 @@ use App\Enums\PatientSource;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Diagnosis;
+use App\Models\Hospital;
 use App\Models\Patient;
 use App\Models\Sgk;
 use App\Models\Transaction;
@@ -89,6 +90,9 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        Hospital::create(["name" => "İzmir Özel Medicana"]);
+        Hospital::create(["name" => "Özel Tınaztepe Galen"]);
+
 
         $dg1 = Diagnosis::create(["name" => "PERİANAL APSE", "icd" => "K61.0"]);
         $dg2 = Diagnosis::create(["name" => "PERİANAL FİSTÜL", "icd" => "K60.3"]);
@@ -108,43 +112,17 @@ class DatabaseSeeder extends Seeder
         $dg17 = Diagnosis::create(["name" => "BARTHOLİN KİST", "icd" => "N75.0"]);
 
 
-        /*Transaction::insert([
-            ["diagnosis_id" => null,"name" => "MUAYENE"],
-            ["diagnosis_id" => $dg1->id,"name" => "PERİANAL APSE DRENAJI"],
-            ["diagnosis_id" => $dg2->id,"name" => "PERİANAL FİSTÜL SETON UYGULAMA"],
-            ["diagnosis_id" => $dg2->id,"name" => "PERİANAL FİSTÜL LAZER UYGULAMA"],
-            ["diagnosis_id" => $dg3->id,"name" => "ANAL BOTOX"],
-            ["diagnosis_id" => $dg3->id,"name" => "LATERAL İNTERNAL SFİNKTEROTOMİ"],
-            ["diagnosis_id" => $dg4->id,"name" => "HİDRADENİTİS SUPPURATİVA LAZER UYGULAMA"],
-            ["diagnosis_id" => $dg6->id,"name" => "GENİTAL SİĞİL KOTERİZASYONU"],
-            ["diagnosis_id" => $dg7->id,"name" => "HEMOROİDEKTOMİ"],
-            ["diagnosis_id" => $dg7->id,"name" => "HEMOROİDEKTOMİ LAZER UYGULAMA"],
-            ["diagnosis_id" => $dg7->id,"name" => "HEMOROİDEKTOMİ BAND LİGASYON"],
-            ["diagnosis_id" => $dg7->id,"name" => "HEMOROİDEKTOMİ ARTER LİGASYON"],
-            ["diagnosis_id" => $dg8->id,"name" => "REKTAL PROLAPSUS ONARIMI"],
-            ["diagnosis_id" => $dg8->id,"name" => "REKTOPEKSİ"],
-            ["diagnosis_id" => $dg9->id,"name" => "TROMBEKTOMİ"],
-            ["diagnosis_id" => $dg10->id,"name" => "ANAL PİLİ EKSİZYONU"],
-            ["diagnosis_id" => $dg11->id,"name" => "İNGUİNAL HERNİ ONARIMI"],
-            ["diagnosis_id" => $dg11->id,"name" => "LAPAROSKOPİK İNGUİNAL HERNİ ONARIMI"],
-            ["diagnosis_id" => $dg11->id,"name" => "BİLATERAL LAPAROSKOPİK İNGUİNAL HERNİ ONARIMI"],
-            ["diagnosis_id" => $dg12->id,"name" => "PİLONİDAL SİNÜS EKSİZYONU"],
-            ["diagnosis_id" => $dg12->id,"name" => "PİLONİDAL SİNÜS LAZER UYGULAMA"],
-            ["diagnosis_id" => $dg12->id,"name" => "PİLONİDAL SİNÜS APSE DRENAJI"],
-            ["diagnosis_id" => $dg13->id,"name" => "PUDENDAL SİNİR BLOKAJI"],
-            ["diagnosis_id" => $dg14->id,"name" => "LAPAROSKOPİK KOLESİSTEKTOMİ"],
-            ["diagnosis_id" => $dg15->id,"name" => "SİGMOİD KOLON REZEKSİYONU"],
-            ["diagnosis_id" => $dg16->id,"name" => "ASİT DRENAJI"],
-            ["diagnosis_id" => $dg17->id,"name" => "BARTHOLİN KİST EKSİZYONU"]
-        ]);*/
+
         Transaction::insert([
             ["name" => "MUAYENE"],
+            ["name" => "AMELİYAT"],
             ["name" => "PERİANAL APSE DRENAJI"],
             ["name" => "PERİANAL FİSTÜL SETON UYGULAMA"],
             ["name" => "PERİANAL FİSTÜL LAZER UYGULAMA"],
             ["name" => "ANAL BOTOX"],
             ["name" => "LATERAL İNTERNAL SFİNKTEROTOMİ"],
             ["name" => "HİDRADENİTİS SUPPURATİVA LAZER UYGULAMA"],
+            ["name" => "HİDRADENİTİS SUPPURATİVA APSE DRENAJI"],
             ["name" => "GENİTAL SİĞİL KOTERİZASYONU"],
             ["name" => "HEMOROİDEKTOMİ"],
             ["name" => "HEMOROİDEKTOMİ LAZER UYGULAMA"],

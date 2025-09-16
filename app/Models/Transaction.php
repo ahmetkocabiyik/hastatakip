@@ -11,12 +11,17 @@ class Transaction extends Model
     //
     public function patients(): BelongsToMany
     {
-        return $this->belongsToMany(Patient::class);
+        return $this->belongsToMany(Patient::class)->withPivot("date","hospital_id","note","special_material","has_laser");
     }
 
     public function diagnosis(): BelongsTo
     {
         return $this->belongsTo(Diagnosis::class);
+    }
+
+    public function hospital(): BelongsTo
+    {
+        return $this->belongsTo(Hospital::class);
     }
 
 }

@@ -20,7 +20,8 @@ class Patient extends Model
 
     protected $casts = [
         "source" => PatientSource::class,
-        "gender" => PatientGender::class
+        "gender" => PatientGender::class,
+        "notes" => "array",
     ];
 
 
@@ -43,12 +44,17 @@ class Patient extends Model
 
     public function transactions(): BelongsToMany
     {
-        return $this->belongsToMany(Transaction::class);
+        return $this->belongsToMany(Transaction::class)->withPivot("date","hospital_id","note","special_material","has_laser");
     }
 
     public function diagnoses(): BelongsToMany
     {
         return $this->belongsToMany(Diagnosis::class);
+    }
+
+    public function notes(): HasMany
+    {
+        return $this->hasMany(Note::class);
     }
 
 
