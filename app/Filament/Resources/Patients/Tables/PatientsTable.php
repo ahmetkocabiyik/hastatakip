@@ -3,9 +3,12 @@
 namespace App\Filament\Resources\Patients\Tables;
 
 use App\Enums\PatientSource;
+use App\Filament\Exports\PatientExporter;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ExportAction;
+use Filament\Actions\ExportBulkAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
@@ -126,7 +129,12 @@ class PatientsTable
                         return 'Tarih : ' . $month." ".$data['registration_year'];
                     })
             ])
+            ->headerActions([
+                ExportAction::make()
+                    ->exporter(PatientExporter::class),
+            ])
             ->recordActions([
+
                 ViewAction::make(),
                 EditAction::make(),
             ])
@@ -134,6 +142,8 @@ class PatientsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
+                ExportBulkAction::make()
+                    ->exporter(PatientExporter::class),
             ]);
     }
 }

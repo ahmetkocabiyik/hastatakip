@@ -59,6 +59,7 @@ class AppPanelProvider extends PanelProvider
             ])
             ->sidebarCollapsibleOnDesktop()
             ->sidebarFullyCollapsibleOnDesktop()
+            ->databaseNotifications()
             ->readOnlyRelationManagersOnResourceViewPagesByDefault(false);
     }
 }
