@@ -5,9 +5,6 @@ namespace App\Filament\Resources\Patients\RelationManagers;
 use App\Models\Hospital;
 use Filament\Actions\AttachAction;
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\CreateAction;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DetachAction;
 use Filament\Actions\DetachBulkAction;
 use Filament\Actions\EditAction;
@@ -33,10 +30,11 @@ class TransactionsRelationManager extends RelationManager
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->label("İşlem Adı")
-                    ->required()
-                    ->maxLength(255),
+                DatePicker::make('date')->label("İşlem Tarihi")->default(now()),
+                Select::make("hospital_id")->options(Hospital::all()->pluck('name', 'id'))->label("Hastane"),
+                Textarea::make("note")->label("İşlem Notu"),
+                Textarea::make("special_material")->label("Özellikli Malzeme"),
+                Toggle::make("has_laser")->label("Lazer kullanıldı mı ?"),
             ]);
     }
 
@@ -74,11 +72,13 @@ class TransactionsRelationManager extends RelationManager
                         Textarea::make("note")->label("İşlem Notu"),
                         Textarea::make("special_material")->label("Özellikli Malzeme"),
                         Toggle::make("has_laser")->label("Lazer kullanıldı mı ?"),
-
                     ])
-                    ->color('primary')->preloadRecordSelect()
+                    ->color('primary')->preloadRecordSelect(),
+
+
             ])
             ->recordActions([
+                EditAction::make(),
                 DetachAction::make(),
 
             ])
