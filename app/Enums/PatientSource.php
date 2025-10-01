@@ -24,7 +24,7 @@ enum PatientSource : string implements HasLabel,HasColor
     {
         return match($this) {
             self::Unknown => "Bilinmiyor",
-            self::GoogleAds => "Google Reklam",
+            self::GoogleAds => "Reklam",
             self::Facebook => "Facebook",
             self::Instagram => "Instagram",
             self::Tiktok => "Tiktok",
