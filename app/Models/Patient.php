@@ -44,7 +44,7 @@ class Patient extends Model
 
     public function transactions(): BelongsToMany
     {
-        return $this->belongsToMany(Transaction::class)->withPivot("date","hospital_id","note","special_material","has_laser");
+        return $this->belongsToMany(Transaction::class)->withPivot("id","date","hospital_id","note","special_material","has_laser");
     }
 
     public function diagnoses(): BelongsToMany
