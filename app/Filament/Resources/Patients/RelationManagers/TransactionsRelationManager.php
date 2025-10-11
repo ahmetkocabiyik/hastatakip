@@ -18,7 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-
+use Illuminate\Database\Eloquent\Builder;
 class TransactionsRelationManager extends RelationManager
 {
     protected static string $relationship = 'transactions';
@@ -42,7 +42,7 @@ class TransactionsRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('name')
-
+            ->allowDuplicates()
             ->columns([
                 TextColumn::make('name')
                     ->label("İşlem Adı")
