@@ -42,6 +42,7 @@ class TransactionsRelationManager extends RelationManager
     {
         return $table
             ->recordTitleAttribute('name')
+            ->defaultSort('date', 'asc')
             ->allowDuplicates()
             ->columns([
                 TextColumn::make('name')
