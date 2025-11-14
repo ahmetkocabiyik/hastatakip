@@ -34,7 +34,7 @@ class PatientsChart extends ChartWidget
             $data = Trend::query(
                 Patient::query()->where("source", $activeFilter))
                 ->between(
-                    start: now()->subYear(),
+                    start: now()->subMonths(18),
                     end: now(),
                 )
                 ->dateColumn("registration_date")
@@ -44,7 +44,7 @@ class PatientsChart extends ChartWidget
         else {
             $data = Trend::model(Patient::class)
                 ->between(
-                    start: now()->subYear(),
+                    start: now()->subMonths(18),
                     end: now(),
                 )
                 ->dateColumn("registration_date")
