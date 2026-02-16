@@ -22,6 +22,7 @@ class Patient extends Model
         "source" => PatientSource::class,
         "gender" => PatientGender::class,
         "notes" => "array",
+        "birth_date" => "date",
     ];
 
 
@@ -55,6 +56,21 @@ class Patient extends Model
     public function notes(): HasMany
     {
         return $this->hasMany(Note::class);
+    }
+
+    protected function age(): Attribute
+    {
+        return Attribute::make(
+            get: function (): ?int {
+                if (! $this->birth_date) {
+                    return null;
+                }
+
+                $birthDate = $this->birth_date;
+
+                return $birthDate->diffInYears(now());
+            }
+        );
     }
 
 

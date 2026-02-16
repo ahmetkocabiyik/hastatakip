@@ -42,11 +42,14 @@ class PatientsTable
                     ->label("Kayıt Tarihi")
                     ->sortable()
                     ->date(),
+
                 TextColumn::make('id_no')
                     ->label("TC Kimlik")
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-
+                TextColumn::make('age')
+                    ->label("Yaş")
+                    ->searchable(),
                 TextColumn::make('city.name')
                     ->sortable()
                     ->label("Şehir")

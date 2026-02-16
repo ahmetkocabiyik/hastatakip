@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Filament\Resources\Hospitals\Schemas;
+namespace App\Filament\Resources\Sgks\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class HospitalForm
+class SgkForm
 {
     public static function configure(Schema $schema): Schema
     {
@@ -13,11 +13,12 @@ class HospitalForm
             ->components([
                 //
                 TextInput::make('name')
-                    ->label("Hastane Adı")
+                    ->label("Sigorta Adı")
                     ->rules(['required'])
                     ->validationMessages([
-                        'required' => 'Hastane adı zorunludur.',
+                        'required' => 'Sigorta adı zorunludur.',
                     ])
+
             ]);
     }
 }
