@@ -18,8 +18,8 @@ use Filament\Tables\Table;
 class SgkResource extends Resource
 {
     protected static ?string $model = Sgk::class;
-    protected static ?string $modelLabel = "Sigorta Kaydı";
-    protected static ?string $pluralModelLabel = "Sigorta Kayıtları";
+    protected static ?string $modelLabel = "Sigorta";
+    protected static ?string $pluralModelLabel = "Sigortalar";
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
     protected static ?int $navigationSort = 5;
     protected static ?string $recordTitleAttribute = 'name';
