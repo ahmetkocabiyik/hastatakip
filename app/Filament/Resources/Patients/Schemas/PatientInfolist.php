@@ -30,6 +30,7 @@ class PatientInfolist
                             ->date(),
                         TextEntry::make('birth_date')->label("Doğum Tarihi")->badge()
                             ->date(),
+                        TextEntry::make('age')->label("Yaş")->badge(),
                         TextEntry::make('city.name')->label("Şehir")->badge(),
                         TextEntry::make('country.name')->label("Ülke")->badge(),
                         TextEntry::make('phone')->label("Telefon")->badge()

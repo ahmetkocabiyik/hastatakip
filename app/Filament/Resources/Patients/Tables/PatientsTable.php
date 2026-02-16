@@ -48,8 +48,11 @@ class PatientsTable
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
                 TextColumn::make('age')
-                    ->label("Yaş")
-                    ->searchable(),
+                    ->label('Yaş')
+                    ->sortable(query: function (Builder $query, string $direction): Builder {
+                        $birthDateDirection = $direction === 'asc' ? 'desc' : 'asc';
+                        return $query->orderBy('birth_date', $birthDateDirection);
+                    }),
                 TextColumn::make('city.name')
                     ->sortable()
                     ->label("Şehir")
