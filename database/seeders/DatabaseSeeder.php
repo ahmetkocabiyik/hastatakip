@@ -45,6 +45,8 @@ class DatabaseSeeder extends Seeder
             ["name" => "ANKARA SİGORTA"],
             ["name" => "VAKIFBANK"],
             ["name" => "HALKBANKASI"],
+            ["name" => "ETHİCA"],
+            ["name" => "DOĞA SİGORTA"],
 
         ]);
 
@@ -60,6 +62,7 @@ class DatabaseSeeder extends Seeder
             ["name" => "PORTEKİZ"],
             ["name" => "KIRGIZİSTAN"],
             ["name" => "KIBRIS"],
+            ["name" => "SIRBİSTAN"],
         ]);
 
         City::insert([
@@ -86,6 +89,8 @@ class DatabaseSeeder extends Seeder
             ["name" => "ŞIRNAK"],
             ["name" => "TOKAT"],
             ["name" => "UŞAK"],
+            ["name" => "TEKİRDAĞ"],
+            ["name" => "HATAY"],
             ["name" => "YOZGAT"]
 
         ]);

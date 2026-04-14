@@ -1,0 +1,73 @@
+name: Deploy - erp.mustafagoztok.com
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+
+      - name: Install Composer Dependencies
+        run: COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Frontend Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy to Server
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --exclude='.env' --exclude='vendor/' --exclude='node_modules/'
+          path: ./
+          remote_path: /home/erp.mustafagoztok.com/public_html/
+          remote_host: ${{ secrets.SERVER_HOST }}
+          remote_user: ${{ secrets.SERVER_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Post Deploy
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd /home/erp.mustafagoztok.com/public_html
+
+            # Önce tüm sahipliği düzelt
+            chown -R erpmu2115:erpmu2115 /home/erp.mustafagoztok.com/public_html
+
+            # Git safe directory
+            git config --global --add safe.directory /home/erp.mustafagoztok.com/public_html
+
+            # Composer
+            COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
+
+            # .env kontrolü
+            php artisan env
+
+            # Laravel
+            php artisan migrate:fresh --seed --force
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan storage:link
+            php artisan config:clear
+            php artisan cache:clear
