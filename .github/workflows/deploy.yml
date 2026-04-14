@@ -58,7 +58,7 @@ jobs:
             git config --global --add safe.directory /home/erp.mustafagoztok.com/public_html
 
             # Composer
-            COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
+            COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader
 
             # .env kontrolü
             php artisan env
