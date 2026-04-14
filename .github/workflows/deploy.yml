@@ -18,7 +18,7 @@ jobs:
           php-version: 8.2
 
       - name: Install Composer Dependencies
-        run: COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --optimize-autoloader
+        run: COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader
 
       - name: Setup Node
         uses: actions/setup-node@v3
