@@ -159,6 +159,11 @@ class DatabaseSeeder extends Seeder
                 "birth_date" => $prop->birth_date ? Carbon::createFromFormat("d.m.Y", $prop->birth_date) : null,
                 "sgk_id" => Sgk::where('name','like', '%' . trim($prop->sgk) . '%')->first()->id,
                 "source" => $source,
+                "allergies" => $prop->allergies,
+                "drugs" => $prop->drugs,
+                "past_operations" => $prop->past_operations,
+                "known_illness" => $prop->known_illness,
+                "complaint" => $prop->complaint
             ]);
 
             if(str_contains($prop->diagnosis,"-")) {
