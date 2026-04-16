@@ -570,7 +570,7 @@
         "city": "İZMİR",
         "channel": "",
         "sgk": "ÜCRETLİ",
-        "icd": "K62-K60.0",
+        "icd": "K60.0-K62.8",
         "diagnosis": "ANAL FİSSÜR -ANAL PİLİ",
         "": "",
         "transaction": "ANAL PİLİ EKSİZYONU"
@@ -1338,7 +1338,7 @@
         "city": "EDİRNE",
         "channel": "",
         "sgk": "ÜCRETLİ",
-        "icd": "B07-K62",
+        "icd": "B07-K62.8",
         "diagnosis": "HPV-ANAL PİLİ",
         "": "",
         "transaction": "MUAYENE"
@@ -9354,7 +9354,7 @@
         "city": "İZMİR",
         "channel": "REKLAM",
         "sgk": "ÜCRETLİ",
-        "icd": "K62",
+        "icd": "K62.8",
         "diagnosis": "ANAL PİLİ",
         "": "",
         "transaction": "ANAL PİLİ EKSİZYONU"
@@ -9626,7 +9626,7 @@
         "city": "İZMİR",
         "channel": "REKLAM",
         "sgk": "ÜCRETLİ",
-        "icd": "K60.0-K62",
+        "icd": "K60.0-K62.8",
         "diagnosis": "ANAL FİSSÜR -ANAL PİLİ",
         "": "",
         "transaction": "ANAL BOTOX -ANAL PİLİ EKSİZYONU"
@@ -9898,7 +9898,7 @@
         "city": "İZMİR",
         "channel": "TELEFON",
         "sgk": "ÜCRETLİ",
-        "icd": "K62",
+        "icd": "K62.8",
         "diagnosis": "ANAL PİLİ",
         "": "",
         "transaction": "MUAYENE"
@@ -10298,7 +10298,7 @@
         "city": "İZMİR",
         "channel": "TELEFON",
         "sgk": "ÜCRETLİ",
-        "icd": "K62-B07",
+        "icd": "K62.8-B07",
         "diagnosis": "ANAL PİLİ -ANAL KONDİLOM",
         "": "",
         "transaction": "ANAL PİLİ EKSİZYONU- ANAL KONDİLOM KOTERİZASYONU"
@@ -11290,7 +11290,7 @@
         "city": "MUĞLA",
         "channel": "TELEFON",
         "sgk": "ÜCRETLİ",
-        "icd": "K60.0-K62",
+        "icd": "K60.0-K62.8",
         "diagnosis": "ANAL FİSSÜR -ANAL PİLİ",
         "": "",
         "transaction": "ANAL BOTOX -ANAL PİLİ EKSİZYONU"
@@ -11322,7 +11322,7 @@
         "city": "İZMİR",
         "channel": "REKLAM",
         "sgk": "ÜCRETLİ",
-        "icd": "K62",
+        "icd": "K62.8",
         "diagnosis": "ANAL PİLİ",
         "": "",
         "transaction": "ANAL PİLİ EKSİZYONU"
@@ -11850,7 +11850,7 @@
         "city": "İZMİR",
         "channel": "HASTA ÖNERİSİ",
         "sgk": "ÜCRETLİ",
-        "icd": "K60.0-K62",
+        "icd": "K60.0-K62.8",
         "diagnosis": "ANAL FİSSÜR -ANAL PİLİ",
         "": "",
         "transaction": "ANAL BOTOX- ANAL PİLİ EKSİZYONU"
@@ -11978,7 +11978,7 @@
         "city": "İZMİR",
         "channel": "REKLAM",
         "sgk": "ÜCRETLİ",
-        "icd": "K62",
+        "icd": "K62.8",
         "diagnosis": "ANAL PİLİ ",
         "": "",
         "transaction": "ANAL PİLİ EKSİZYONU"
@@ -13178,7 +13178,7 @@
         "city": "İZMİR",
         "channel": "İNSTAGRAM",
         "sgk": "TÜRKİYE SİGORTA",
-        "icd": "K62-K60.0",
+        "icd": "K62.8-K60.0",
         "diagnosis": "ANAL PİLİ-ANAL FİSSÜR",
         "": "",
         "transaction": "ANAL PİLİ EKSİZYONU"
@@ -14490,7 +14490,7 @@
         "city": "İZMİR",
         "channel": "TELEFON",
         "sgk": "ÜCRETLİ",
-        "icd": "K60.0-I84-K62",
+        "icd": "K60.0-I84-K62.8",
         "diagnosis": "ANAL FİSSÜR-HEMOROİD-ANAL PİLİ",
         "": "",
         "transaction": "MUAYENE"

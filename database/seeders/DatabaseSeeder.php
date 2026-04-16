@@ -15,6 +15,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -107,7 +108,7 @@ class DatabaseSeeder extends Seeder
         $dg7 = Diagnosis::create(["name" => "HEMOROİD", "icd" => "I84"]);
         $dg8 = Diagnosis::create(["name" => "REKTAL PROLAPSUS", "icd" => "K62.3"]);
         $dg9 = Diagnosis::create(["name" => "TROMBOZE HEMOROİD", "icd" => "I87"]);
-        $dg10 = Diagnosis::create(["name" => "ANAL PİLİ", "icd" => "K62"]);
+        $dg10 = Diagnosis::create(["name" => "ANAL PİLİ", "icd" => "K62.8"]);
         $dg11 = Diagnosis::create(["name" => "İNGUİNAL HERNİ", "icd" => "K40"]);
         $dg12 = Diagnosis::create(["name" => "PİLONİDAL SİNÜS", "icd" => "L05"]);
         $dg13 = Diagnosis::create(["name" => "KUYRUK SOKUMUNDA AĞRI", "icd" => "M54.18"]);
@@ -117,38 +118,9 @@ class DatabaseSeeder extends Seeder
         $dg17 = Diagnosis::create(["name" => "BARTHOLİN KİST", "icd" => "N75.0"]);
 
 
+        $sql = file_get_contents(database_path('data_first.sql'));
+        DB::unprepared($sql);
 
-        Transaction::insert([
-            ["name" => "MUAYENE"],
-            ["name" => "AMELİYAT"],
-            ["name" => "PERİANAL APSE DRENAJI"],
-            ["name" => "PERİANAL FİSTÜL SETON UYGULAMA"],
-            ["name" => "PERİANAL FİSTÜL LAZER UYGULAMA"],
-            ["name" => "ANAL BOTOX"],
-            ["name" => "LATERAL İNTERNAL SFİNKTEROTOMİ"],
-            ["name" => "HİDRADENİTİS SUPPURATİVA LAZER UYGULAMA"],
-            ["name" => "HİDRADENİTİS SUPPURATİVA APSE DRENAJI"],
-            ["name" => "GENİTAL SİĞİL KOTERİZASYONU"],
-            ["name" => "HEMOROİDEKTOMİ"],
-            ["name" => "HEMOROİDEKTOMİ LAZER UYGULAMA"],
-            ["name" => "HEMOROİDEKTOMİ BAND LİGASYON"],
-            ["name" => "HEMOROİDEKTOMİ ARTER LİGASYON"],
-            ["name" => "REKTAL PROLAPSUS ONARIMI"],
-            ["name" => "REKTOPEKSİ"],
-            ["name" => "TROMBEKTOMİ"],
-            ["name" => "ANAL PİLİ EKSİZYONU"],
-            ["name" => "İNGUİNAL HERNİ ONARIMI"],
-            ["name" => "LAPAROSKOPİK İNGUİNAL HERNİ ONARIMI"],
-            ["name" => "BİLATERAL LAPAROSKOPİK İNGUİNAL HERNİ ONARIMI"],
-            ["name" => "PİLONİDAL SİNÜS EKSİZYONU"],
-            ["name" => "PİLONİDAL SİNÜS LAZER UYGULAMA"],
-            ["name" => "PİLONİDAL SİNÜS APSE DRENAJI"],
-            ["name" => "PUDENDAL SİNİR BLOKAJI"],
-            ["name" => "LAPAROSKOPİK KOLESİSTEKTOMİ"],
-            ["name" => "SİGMOİD KOLON REZEKSİYONU"],
-            ["name" => "ASİT DRENAJI"],
-            ["name" => "BARTHOLİN KİST EKSİZYONU"]
-        ]);
 
 
 
@@ -225,6 +197,9 @@ class DatabaseSeeder extends Seeder
             //$patient->transactions();
             //$patient->transactions()->attach();
         }
+
+        $sql = file_get_contents(database_path('data.sql'));
+        DB::unprepared($sql);
 
     }
 }
