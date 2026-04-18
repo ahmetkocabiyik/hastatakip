@@ -19,6 +19,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
+use Filament\Navigation\NavigationItem;
+
 
 class AppPanelProvider extends PanelProvider
 {
@@ -60,6 +62,17 @@ class AppPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->sidebarFullyCollapsibleOnDesktop()
             ->databaseNotifications()
-            ->readOnlyRelationManagersOnResourceViewPagesByDefault(false);
+            ->readOnlyRelationManagersOnResourceViewPagesByDefault(false)
+            ->navigationItems([
+                NavigationItem::make('E-Çırak Sistemi')
+                    ->url('https://ecirak.com/', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-star')
+                    ->group('Linkler'),
+                NavigationItem::make('Sevk Sistemi')
+                    ->url('https://mbys2.saglik.gov.tr/Account/Login?ReturnUrl=http%3A%2F%2Fmbys2.saglik.gov.tr%2F', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-star')
+                    ->group('Linkler'),
+
+            ]);
     }
 }
