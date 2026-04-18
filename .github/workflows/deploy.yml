@@ -51,7 +51,7 @@ jobs:
             set -e
             cd /home/erp.mustafagoztok.com/public_html
 
-            # Önce tüm sahipliği düzelt
+            # Önce tüm sahipliği düzeltt
             chown -R erpmu2115:erpmu2115 /home/erp.mustafagoztok.com/public_html
 
             # Git safe directory
