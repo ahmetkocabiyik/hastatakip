@@ -72,6 +72,11 @@ class AppPanelProvider extends PanelProvider
                     ->url('https://mbys2.saglik.gov.tr/Account/Login?ReturnUrl=http%3A%2F%2Fmbys2.saglik.gov.tr%2F', shouldOpenInNewTab: true)
                     ->icon('heroicon-o-star')
                     ->group('Linkler'),
+                NavigationItem::make('Tınaztepe Sistemi')
+                    ->url('https://hbys.tinaztepe.com/', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-star')
+                    ->group('Linkler'),
+
 
             ]);
     }
