@@ -58,6 +58,11 @@ class Patient extends Model
         return $this->hasMany(Note::class);
     }
 
+    public function results(): HasMany
+    {
+        return $this->hasMany(PatientResult::class);
+    }
+
     protected function age(): Attribute
     {
         return Attribute::make(
