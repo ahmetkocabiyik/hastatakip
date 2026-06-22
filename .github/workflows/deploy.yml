@@ -38,6 +38,7 @@ jobs:
           path: ./
           remote_path: /home/erp.mustafagoztok.com/public_html/
           remote_host: ${{ secrets.SERVER_HOST }}
+          remote_port: 2222
           remote_user: ${{ secrets.SERVER_USER }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
@@ -45,6 +46,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SERVER_HOST }}
+          port: 2222
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
