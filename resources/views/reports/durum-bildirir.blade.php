@@ -7,7 +7,7 @@
         * { font-family: DejaVu Sans, sans-serif; }
         @page { margin: 150px 60px 90px 60px; }
 
-        body { font-size: 12pt; color: #000; line-height: 1.5; }
+        body { font-size: 10pt; color: #000; line-height: 1.5; }
 
         header { position: fixed; top: -100px; left: 0; right: 0; text-align: center; }
         header img { width: 300px;}
@@ -16,7 +16,7 @@
         h1 { font-size: 14pt; text-align: center; margin: 0 0 25px 0; }
 
         table.fields { width: 100%; border-collapse: collapse; margin-bottom: 25px; }
-        table.fields td { padding: 4px 0; font-size: 12pt; vertical-align: top; }
+        table.fields td { padding: 4px 0; font-size: 10pt; vertical-align: top; }
         table.fields td.label { font-weight: bold; width: 130px; white-space: nowrap; }
 
         .body-text { text-align: justify; margin: 20px 0; }

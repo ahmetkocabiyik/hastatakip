@@ -70,6 +70,11 @@ class ViewPatient extends ViewRecord
 
                         $livewire->js('window.open(' . json_encode($url) . ", '_blank')");
                     }),
+                Action::make('epikriz')
+                    ->label('Epikriz')
+                    ->icon(Heroicon::DocumentText)
+                    ->url(fn (): string => route('patients.reports.epikriz', ['patient' => $this->getRecord()]))
+                    ->openUrlInNewTab(),
             ])
                 ->label('Raporlar')
                 ->icon(Heroicon::DocumentArrowDown)

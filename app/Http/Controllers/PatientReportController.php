@@ -31,6 +31,38 @@ class PatientReportController extends Controller
         return $pdf->stream($fileName);
     }
 
+    public function epikriz(Request $request, Patient $patient)
+    {
+        $patient->load(['sgk', 'city', 'country', 'diagnoses', 'transactions']);
+
+        $pdf = Pdf::loadView('reports.epikriz', [
+            'patient' => $patient,
+            'date' => Carbon::today()->format('d.m.Y'),
+            'logo' => public_path('img/logo.svg'),
+            'girisTarihi' => $this->formatTarih($request->query('giris_tarihi')),
+            'cikisTarihi' => $this->formatTarih($request->query('cikis_tarihi')),
+            'yatisNedeni' => $request->query('yatis_nedeni'),
+            'cikisNedeni' => $request->query('cikis_nedeni'),
+            'bilincDurumu' => $request->query('bilinc_durumu'),
+            'muayeneBulgulari' => $request->query('muayene_bulgulari'),
+            'tedaviPlani' => $request->query('tedavi_plani'),
+            'cikisOnerileri' => $request->query('cikis_onerileri'),
+        ])->setPaper('a4', 'portrait');
+
+        $fileName = 'epikriz-' . $patient->number . '.pdf';
+
+        return $pdf->stream($fileName);
+    }
+
+    private function formatTarih(?string $tarih): ?string
+    {
+        if (! $tarih) {
+            return null;
+        }
+
+        return Carbon::parse($tarih)->format('d.m.Y');
+    }
+
     /**
      * 0-999 arası tam sayıyı Türkçe yazıya çevirir (ör. 10 => "on", 125 => "yüz yirmi beş").
      */
