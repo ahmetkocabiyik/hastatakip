@@ -23,6 +23,8 @@ class Patient extends Model
         "gender" => PatientGender::class,
         "notes" => "array",
         "birth_date" => "date",
+        "smoking" => "boolean",
+        "alcohol" => "boolean",
     ];
 
 

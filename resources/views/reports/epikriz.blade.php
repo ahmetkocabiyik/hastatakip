@@ -123,6 +123,8 @@
         @endif
         <div class="field-line"><span class="k">Kullandığı İlaçlar:</span> {{ $patient->drugs ?: 'Yok' }}</div>
         <div class="field-line"><span class="k">Alerji:</span> {{ $patient->allergies ?: 'Bilinen alerji yok' }}</div>
+        <div class="field-line"><span class="k">Sigara Kullanımı:</span> {{ $patient->smoking ? 'Evet' : 'Hayır' }}</div>
+        <div class="field-line"><span class="k">Alkol Kullanımı:</span> {{ $patient->alcohol ? 'Evet' : 'Hayır' }}</div>
         @if ($bilincDurumu)
             <div class="field-line"><span class="k">Bilinç Durumu:</span> {{ $bilincDurumu }}</div>
         @endif

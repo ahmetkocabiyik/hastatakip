@@ -49,6 +49,14 @@ class PatientInfolist
                             ->label("Bilinen Hastalıklar"),
                         TextEntry::make('past_operations')->badge()
                             ->label("Geçmiş Cerrahiler"),
+                        TextEntry::make('smoking')->badge()
+                            ->label("Sigara Kullanımı")
+                            ->formatStateUsing(fn ($state): string => $state ? 'Evet' : 'Hayır')
+                            ->color(fn ($state): string => $state ? 'danger' : 'success'),
+                        TextEntry::make('alcohol')->badge()
+                            ->label("Alkol Kullanımı")
+                            ->formatStateUsing(fn ($state): string => $state ? 'Evet' : 'Hayır')
+                            ->color(fn ($state): string => $state ? 'danger' : 'success'),
                         TextEntry::make('complaint')->badge()
                             ->label("Şikayet"),
                     ])

@@ -73,6 +73,14 @@ class PatientForm
                     ->label("Bilinen Hastalıklar"),
                 Textarea::make('past_operations')
                     ->label("Geçmiş Cerrahiler"),
+                ToggleButtons::make('smoking')
+                    ->label("Sigara Kullanımı")
+                    ->boolean()
+                    ->inline(),
+                ToggleButtons::make('alcohol')
+                    ->label("Alkol Kullanımı")
+                    ->boolean()
+                    ->inline(),
                 Textarea::make('complaint')
                     ->label("Şikayet")
                     ->columnSpanFull(),

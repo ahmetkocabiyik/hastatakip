@@ -42,6 +42,8 @@ class PatientExporter extends Exporter
             ExportColumn::make('drugs')->label("Kullandığı İlaçlar"),
             ExportColumn::make('past_operations')->label("Geçmiş Operasyonlar"),
             ExportColumn::make('known_illness')->label("Bilinen Hastalıklar"),
+            ExportColumn::make('smoking')->formatStateUsing(fn ($state): string => $state ? 'Evet' : 'Hayır')->label("Sigara Kullanımı"),
+            ExportColumn::make('alcohol')->formatStateUsing(fn ($state): string => $state ? 'Evet' : 'Hayır')->label("Alkol Kullanımı"),
             ExportColumn::make('complaint')->label("Şikayet"),
         ];
     }
