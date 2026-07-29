@@ -16,7 +16,7 @@ class PatientsChart extends ChartWidget
 
     protected string $view = 'filament.widgets.patients-chart';
 
-    public ?string $dateRange = '18months';
+    public ?string $dateRange = '12months';
 
     /**
      * @return array<string, string>
@@ -25,7 +25,8 @@ class PatientsChart extends ChartWidget
     {
         return [
             'all' => 'Tüm zamanlar',
-            '18months' => 'Son 1.5 yıl',
+            '24months' => 'Son 2 yıl',
+            '12months' => 'Son 1 yıl',
             '6months' => 'Son 6 ay',
             'this_year' => 'Bu yıl',
             'last_year' => 'Geçen yıl',
@@ -85,13 +86,14 @@ class PatientsChart extends ChartWidget
             'all' => [
                 Patient::min('registration_date')
                     ? \Illuminate\Support\Carbon::parse(Patient::min('registration_date'))->startOfMonth()
-                    : now()->subMonths(18),
+                    : now()->subMonths(12),
                 now(),
             ],
+            '24months' => [now()->subMonths(24), now()],
             '6months' => [now()->subMonths(6), now()],
             'this_year' => [now()->startOfYear(), now()],
             'last_year' => [now()->subYear()->startOfYear(), now()->subYear()->endOfYear()],
-            default => [now()->subMonths(18), now()],
+            default => [now()->subMonths(12), now()],
         };
     }
 
