@@ -24,7 +24,13 @@ class ConsentFormForm
                     ->disk('public')
                     ->columnSpanFull()
                     ->directory('consent-forms')
-                    ->acceptedFileTypes(['application/pdf', 'image/jpeg', 'image/png'])
+                    ->acceptedFileTypes([
+                        'application/pdf',
+                        'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        'image/jpeg',
+                        'image/png',
+                    ])
                     ->downloadable()
                     ->openable(),
             ]);
