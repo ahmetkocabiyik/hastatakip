@@ -82,18 +82,20 @@ class PatientsChart extends ChartWidget
      */
     protected function getDateRange(): array
     {
+        $end = now()->endOfMonth();
+
         return match ($this->dateRange) {
             'all' => [
                 Patient::min('registration_date')
                     ? \Illuminate\Support\Carbon::parse(Patient::min('registration_date'))->startOfMonth()
-                    : now()->subMonths(12),
-                now(),
+                    : now()->subMonths(11)->startOfMonth(),
+                $end,
             ],
-            '24months' => [now()->subMonths(24), now()],
-            '6months' => [now()->subMonths(6), now()],
-            'this_year' => [now()->startOfYear(), now()],
+            '24months' => [now()->subMonths(23)->startOfMonth(), $end],
+            '6months' => [now()->subMonths(5)->startOfMonth(), $end],
+            'this_year' => [now()->startOfYear(), $end],
             'last_year' => [now()->subYear()->startOfYear(), now()->subYear()->endOfYear()],
-            default => [now()->subMonths(12), now()],
+            default => [now()->subMonths(11)->startOfMonth(), $end],
         };
     }
 
